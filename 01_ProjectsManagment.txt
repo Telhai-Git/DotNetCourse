@@ -1,0 +1,72 @@
+Version
+  .NET 8
+Solution
+  - ProjA
+  - ProjB
+  - ...
+Each project build binaries outputs
+Require RunTime to Execute 
+  - {ProjetName}.dll
+  - {ProjectName}.exe
+- Bin/Debug/..
+- run from cli : dotnet {ProjetName}.dll / click exe
+- Assemblies
+---------------
+Namspace
+   - ClassA
+   - ClassB
+   - ....
+Sln
+  - Proj P1
+     - Namspace N1
+       - Class A
+       - Class B
+     - Namspace N1
+       - Class A
+-----------------
+- Its recomended that each new namspace name will be 
+  inside a folder
+- each class in that folder will have its own namspace name
+-----------------
+How Good Applications is developed:
+  - Main Project  (exe)
+  - Class Library Logger (logger.dll)
+  - Class Libraary DB (db.dll)
+  - Class Library WebConnector (webconnector.dll)
+-------------------
+Why Working with ClassLibraries is Good?
+ - can be reuse by many project(Deployment)
+ - Modulrity
+ - Each dll is responsible for specific domain 
+ - BLACK BOX
+ - Seperatiion of Development work
+ - UnitTest / QA
+---------------------
+What is going on when build main exe 
+- It Compile All Reference class Library as
+  Dll's That can be access from Main Exe
+- All Relevant DLL will be copied(after compiled) 
+  next to the exe file
+----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

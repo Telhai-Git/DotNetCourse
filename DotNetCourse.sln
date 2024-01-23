@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telahi.DotNet", "Telahi.DotNet\Telahi.DotNet.csproj", "{FDE69880-B776-40F1-AAA8-E927CA80336F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{668C6CB9-F7DC-4085-9365-14BEB75C1D8B}"
+	ProjectSection(SolutionItems) = preProject
+		01_ProjectsManagment.txt = 01_ProjectsManagment.txt
+		02_Classes.txt.txt = 02_Classes.txt.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telahi.DotNet.Logger", "Telahi.DotNet.Logger\Telahi.DotNet.Logger.csproj", "{83FE73A3-22A5-4EEE-BCB2-ECE3AF91AB5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telahi.DotNet.OOP", "Telahi.DotNet.OOP\Telahi.DotNet.OOP.csproj", "{F5D74581-3694-4FC6-BD1B-0C23CBE1B995}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDE69880-B776-40F1-AAA8-E927CA80336F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDE69880-B776-40F1-AAA8-E927CA80336F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDE69880-B776-40F1-AAA8-E927CA80336F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDE69880-B776-40F1-AAA8-E927CA80336F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83FE73A3-22A5-4EEE-BCB2-ECE3AF91AB5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83FE73A3-22A5-4EEE-BCB2-ECE3AF91AB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83FE73A3-22A5-4EEE-BCB2-ECE3AF91AB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83FE73A3-22A5-4EEE-BCB2-ECE3AF91AB5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D74581-3694-4FC6-BD1B-0C23CBE1B995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D74581-3694-4FC6-BD1B-0C23CBE1B995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D74581-3694-4FC6-BD1B-0C23CBE1B995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D74581-3694-4FC6-BD1B-0C23CBE1B995}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0CE45216-EB38-4C2A-90C1-2364C40E7A25}
+	EndGlobalSection
+EndGlobal

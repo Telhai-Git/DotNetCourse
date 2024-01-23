@@ -1,0 +1,23 @@
+Class:
+  - Methods
+  - fields
+  - Properties
+  - Constractors
+  - Events
+ ------------------------
+ Properties:
+ - Enables fields to be safe/validate:
+ public int Y
+		{
+			get { return y; }
+			set
+			{
+				if (value >= 0)
+					y = value;
+			}
+		}
+---------------------------
+print text and Data:
+Console.WriteLine($"P1: x:{point1.X}, y:{point1.Y}");
+Console.WriteLine($"point1:{point1}");//will run to Tostring() 
+
