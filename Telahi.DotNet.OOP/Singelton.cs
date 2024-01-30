@@ -14,12 +14,14 @@ namespace Telahi.DotNet.OOP
 		//03) Create Property to Iniilize the object if not exsit
 		public static Singelton Instance
 		{
-			get { 
-			      
+			get {
+				
 				//Not Exsist Yet
-			   if (_instance == null)
+				if (_instance == null)
+				{
 					_instance = new Singelton();
-
+					_instance.Name = "No-Name";
+				}
 			   //already exsist
 				return _instance;
 			}
