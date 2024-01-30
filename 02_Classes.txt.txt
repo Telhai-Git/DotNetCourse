@@ -21,3 +21,20 @@ print text and Data:
 Console.WriteLine($"P1: x:{point1.X}, y:{point1.Y}");
 Console.WriteLine($"point1:{point1}");//will run to Tostring() 
 
+--------------------------------
+Static data
+Inheritance 
+Virtual Override
+Design Patterns
+---------------------------
+Static:
+  - Belong to Class not to object
+  - cant access any non static fields/methods (regular)
+  - Non Static can reference Static
+----------------------------
+ Singelton Design Pattern:
+  - Create only one instance of an object
+  - not allowed more then one
+
+
+

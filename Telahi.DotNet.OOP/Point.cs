@@ -1,14 +1,21 @@
-﻿namespace Telahi.DotNet.OOP
+﻿using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
+
+namespace Telahi.DotNet.OOP
 {
-    /// <summary>
-    /// Class Point
-    /// </summary>
+	/// <summary>
+	/// Class Point
+	/// </summary>
 	public class Point
 	{
 
-		#region --fields--
+		#region --private fields--
 		private int x;
 		private int y;
+		private string id;
+		private static int max_x;
+		private static int max_y;
+
 		#endregion
 
 		#region --Constractors--
@@ -16,39 +23,40 @@
 		/// Empty Ctor
 		/// </summary>
 		public Point()
-        {
-            x = 0;
-            y = 0;
-        }
+		{
+			Name = "";
+			IsHidden = false;
+			x = 0;
+			y = 0;
+		}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="x">x val</param>
-        /// <param name="y">y val</param>
-        public Point(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="x">x val</param>
+		/// <param name="y">y val</param>
+		public Point(int x, int y)
+		{
+			this.x = x;
+			this.y = y;
+		}
 
-        public Point(int val)
-        {
+		public Point(int val)
+		{
 			this.x = val;
 			this.y = val;
 		}
 
 		#endregion
 
-
 		#region --Properties--
-		 
+
 		public int X
 		{
 			get { return x; }
 			set {
-			   if (value>=0)	
-			   	x = value; 
+				if (value >= 0)
+					x = value;
 			}
 		}
 		/// <summary>
@@ -64,6 +72,46 @@
 			}
 		}
 
+		/// <summary>
+		/// Auto Prop Data
+		/// </summary>
+		public bool IsHidden { get; set; }
+		public string Name { get; set; } = "";
+
+
+		//public string ID
+		//{
+		//	get { return id; }
+		//	set { id = value; } }
+		//   }
+
+		public string Id { get => id + "_" + Name; }
+
+		public static int MaxX { 
+			get { 
+				  //refernce only static fields/function
+				  return max_x;
+
+			}
+			set
+			{
+				if (Validate(value))
+				{
+					max_x = value;
+				}
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="value"></param>
+		/// <returns></returns>
+		private static bool Validate(int value)
+		{
+
+			return (value > 0); 
+		}
 
 
 		#endregion
@@ -72,12 +120,22 @@
 
 		#endregion
 
-
+		/// <summary>
+		/// Test Representation of the Object
+		/// </summary>
+		/// <returns></returns>
 		public override string ToString()
 		{
-			return $"x:{x}, y:{y}";
+			return $"x:{x}, y:{y}, Max:{max_x}";
 		}
 
+		public static Point SpecialPoint()
+		{
+		    Point point_0 = new Point(0,0);
+			return point_0;
+		}
+
+		
 
 	}
 }
