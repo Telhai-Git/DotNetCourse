@@ -45,11 +45,11 @@ namespace Telahi.DotNet
 			Singelton s1 =  Singelton.Instance;
 			s1.Id = 1;
 			s1.Name = "myName";
-
 			Singelton.Instance.Name = "2";
-
 			Singelton s2 = Singelton.Instance;
 			s2.Name = "S2";
+			Console.WriteLine(s2.MethodA());
+
 
 			#endregion
 

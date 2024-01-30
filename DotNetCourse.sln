@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{668C6CB9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telahi.DotNet.OOP", "Telahi.DotNet.OOP\Telahi.DotNet.OOP.csproj", "{F5D74581-3694-4FC6-BD1B-0C23CBE1B995}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telahi.DotNet.OOP.Testing", "Telahi.DotNet.OOP.Testing\Telahi.DotNet.OOP.Testing.csproj", "{D55D598B-B160-4D83-BE68-FA55B9A0956F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F5D74581-3694-4FC6-BD1B-0C23CBE1B995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5D74581-3694-4FC6-BD1B-0C23CBE1B995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5D74581-3694-4FC6-BD1B-0C23CBE1B995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D55D598B-B160-4D83-BE68-FA55B9A0956F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D55D598B-B160-4D83-BE68-FA55B9A0956F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D55D598B-B160-4D83-BE68-FA55B9A0956F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D55D598B-B160-4D83-BE68-FA55B9A0956F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
