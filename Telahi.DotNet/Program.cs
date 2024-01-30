@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Xml.Linq;
 using Telahi.DotNet.OOP;
 namespace Telahi.DotNet
 {
@@ -39,6 +40,16 @@ namespace Telahi.DotNet
 			Console.WriteLine(p0);
 
 
+			//Singelton s1 = new Singelton();
+			//Singelton s2 = new Singelton();
+			Singelton s1 =  Singelton.Instance;
+			s1.Id = 1;
+			s1.Name = "myName";
+
+			Singelton.Instance.Name = "2";
+
+			Singelton s2 = Singelton.Instance;
+			s2.Name = "S2";
 
 			#endregion
 
