@@ -8,7 +8,7 @@ namespace Telahi.DotNet.OOP
 {
 	public class Singelton
 	{
-		//02) Static instance of the same class type
+		//02) Staticsingelton  instance of the same class type
 		private static Singelton _instance = null;
 
 		//03) Create Property to Iniilize the object if not exsit
@@ -33,10 +33,13 @@ namespace Telahi.DotNet.OOP
         {    
         }
 
-
         public int Id { get; set; }
 		public int Name { get; set; }
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public string MethodA()
 		{
 			return Id + "_" + Name;
