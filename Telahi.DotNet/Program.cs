@@ -49,8 +49,16 @@ namespace Telahi.DotNet
 			Singelton s2 = Singelton.Instance;
 			s2.Name = "S2";
 			Console.WriteLine(s2.MethodA());
+			
+			//--Same Pointer
+			Singelton s3 = s2;
 
-
+			Point s5 = new(2,5);
+			Point s6 = new(2, 5);
+		
+		 
+			
+			
 			#endregion
 
 
