@@ -26,7 +26,8 @@ namespace Telahi.DotNet.OOP.Testing
 			Assert.IsNotNull(s1);
 		}
 
-		public void TestPoint()
+		[TestMethod]
+		public void Test3()
 		{
 			//--Standart Constractor
 			Point p1 = new Point(2, 5);
