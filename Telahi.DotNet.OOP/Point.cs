@@ -85,7 +85,8 @@ namespace Telahi.DotNet.OOP
 		//	set { id = value; } }
 		//   }
 
-		public string Id { get => id + "_" + Name; }
+		//Only get
+		public string Id { get => id; }
 
 		public static int MaxX { 
 			get { 

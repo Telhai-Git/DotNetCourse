@@ -32,11 +32,14 @@ namespace Telahi.DotNet
 
 
 			#region --Static--
-			//Reference Static
+			//-Reference Static
 			Point.MaxX = 10;
-			//example for static method crteate an object
+			//-example for static method crteate an object
 			Point p0 = Point.SpecialPoint();
+			string name = p0.Name;
 			Console.WriteLine(p0);
+
+
 
 			#endregion
 
