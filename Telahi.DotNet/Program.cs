@@ -17,7 +17,6 @@ namespace Telahi.DotNet
 			point1.Name = "P_1";
 			point1.IsHidden = true;
 
-
 			Console.WriteLine($"P1: x:{point1.X}, y:{point1.Y}");
 			Console.WriteLine($"point1:{point1}");
 
