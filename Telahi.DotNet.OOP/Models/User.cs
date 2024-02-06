@@ -5,21 +5,25 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Telahi.DotNet.OOP.Auth
+namespace Telahi.DotNet.OOP.Models
 {
-	public class User
+	public class User : BaseModel
 	{
 
-		public int Id { get; set; }
 		public string UserName { get; set; }
 		public string PassWord { get; set; }
 
 
 		public User() { }
 
-		public User(string username)
+		public User(string username):base()//Empty Constractor Of Base
 		{
 			UserName = username;
+		}
+
+		protected override string GeneratePrefix()
+		{
+			return "User_";
 		}
 
 		/// <summary>
@@ -29,5 +33,7 @@ namespace Telahi.DotNet.OOP.Auth
 		public override string ToString() => $"{Id}:{UserName}";
 		
 		
+
+
 	}
 }

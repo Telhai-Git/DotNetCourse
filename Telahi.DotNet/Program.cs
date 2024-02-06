@@ -1,6 +1,8 @@
 ﻿using System.Runtime.InteropServices;
+using System.Runtime.Intrinsics.X86;
 using System.Xml.Linq;
 using Telahi.DotNet.OOP;
+using Telahi.DotNet.OOP.Models;
 namespace Telahi.DotNet
 {
 	internal class Program
@@ -118,8 +120,31 @@ namespace Telahi.DotNet
 				sum += point.sumAllPoints();
 			}
 			Console.WriteLine(sum);
-			
+
 			#endregion
+
+
+			#region
+			AdminUser admin1 = new AdminUser("user1");
+			User admin2 = new User("user2");
+			AdminUser admin3 = new AdminUser("user3");
+
+			List<User> users = new List<User>();
+			users.Add(admin1);
+			users.Add(admin2);
+			users.Add(admin3);
+
+			for (int i = 0; i < users.Count; i++)
+			{
+			   User user = users[i];
+			   Console.WriteLine(user);
+			}
+
+			
+
+			#endregion
+
+
 
 
 			Console.ReadKey();
