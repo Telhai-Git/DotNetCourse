@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics.X86;
 using System.Xml.Linq;
 using Telahi.DotNet.OOP;
@@ -128,6 +129,10 @@ namespace Telahi.DotNet
 			AdminUser admin1 = new AdminUser("user1");
 			User admin2 = new User("user2");
 			AdminUser admin3 = new AdminUser("user3");
+			admin3.AccessType = RoleAccessEmum.AdmiFolderAccess;
+
+		
+
 
 			List<User> users = new List<User>();
 			users.Add(admin1);
@@ -140,8 +145,9 @@ namespace Telahi.DotNet
 			   Console.WriteLine(user);
 			}
 
-			
 
+			UsersManager mng = new UsersManager();
+			HandleUsers(mng);
 			#endregion
 
 
@@ -158,5 +164,14 @@ namespace Telahi.DotNet
 
 
 		}
+
+
+        public static void HandleUsers(IUserManager manger)
+		{
+			manger.AddUser(new AdminUser("dfgdfg"));
+
+		}
+
+
 	}
 }

@@ -13,8 +13,10 @@ namespace Telahi.DotNet.OOP.Models
 		public string UserName { get; set; }
 		public string PassWord { get; set; }
 
+		public RoleAccessEmum AccessType { get; set; }
 
-		public User() { }
+
+	public User() { }
 
 		public User(string username):base()//Empty Constractor Of Base
 		{
@@ -35,5 +37,20 @@ namespace Telahi.DotNet.OOP.Models
 		
 
 
+
+
 	}
+
+  public enum RoleAccessEmum {
+
+	 NoNetworkAccess = 0,
+	 FileAccess = 1,
+	 AdmiFolderAccess  = 2,
+    
+
+
+}
+
+
+
 }

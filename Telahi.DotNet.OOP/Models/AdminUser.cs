@@ -20,5 +20,10 @@ namespace Telahi.DotNet.OOP.Models
 		{
 			AccessIps = new List<string>();
 		}
+		protected override string GeneratePrefix()
+		{
+			return "Admin_";
+		}
+
 	}
 }
