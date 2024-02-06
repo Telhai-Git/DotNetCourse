@@ -40,5 +40,10 @@ namespace Telahi.DotNet.OOP
 			return base.ToString() + ", z:"+Z;
 		}
 
+		public void Test()
+		{
+
+		}
+
 	}
 }
