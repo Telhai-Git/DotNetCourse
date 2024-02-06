@@ -127,7 +127,8 @@ namespace Telahi.DotNet.OOP
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return $"x:{x}, y:{y}, Max:{max_x}";
+			return $"x:{x}, y:{y}";
+		
 		}
 
 		public static Point SpecialPoint()
@@ -136,7 +137,13 @@ namespace Telahi.DotNet.OOP
 			return point_0;
 		}
 
-		
+		public virtual int sumAllPoints()
+		{
+			return x + y;
+		}
+
+
+
 
 	}
 }

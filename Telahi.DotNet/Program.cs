@@ -28,37 +28,47 @@ namespace Telahi.DotNet
 
 			#endregion
 
-
-
-
 			#region --Static--
-			//-Reference Static
-			Point.MaxX = 10;
-			//-example for static method crteate an object
-			Point p0 = Point.SpecialPoint();
-			string name = p0.Name;
-			Console.WriteLine(p0);
+			////-Reference Static
+			//Point.MaxX = 10;
+			////-example for static method crteate an object
+			//Point p0 = Point.SpecialPoint();
+			//string name = p0.Name;
+			//Console.WriteLine(p0);
 
 
-			//Singelton s1 = new Singelton();
-			//Singelton s2 = new Singelton();
-			Singelton s1 =  Singelton.Instance;
-			s1.Id = 1;
-			s1.Name = "myName";
-			Singelton.Instance.Name = "2";
-			Singelton s2 = Singelton.Instance;
-			s2.Name = "S2";
-			Console.WriteLine(s2.MethodA());
-			
-			//--Same Pointer
-			Singelton s3 = s2;
+			////Singelton s1 = new Singelton();
+			////Singelton s2 = new Singelton();
+			//Singelton s1 =  Singelton.Instance;
+			//s1.Id = 1;
+			//s1.Name = "myName";
+			//Singelton.Instance.Name = "2";
+			//Singelton s2 = Singelton.Instance;
+			//s2.Name = "S2";
+			//Console.WriteLine(s2.MethodA());
 
-			Point s5 = new(2,5);
-			Point s6 = new(2, 5);
-		
-		 
-			
-			
+			////--Same Pointer
+			//Singelton s3 = s2;
+
+			//Point s5 = new(2,5);
+			//Point s6 = new(2, 5);
+
+
+
+
+			#endregion
+
+			#region --Inheritance--
+			Point3D p3d_1 = new Point3D();
+			Point3D p3d_2 = new Point3D(5);
+			Point3D p3d_3 = new Point3D(1,7,3);
+			Console.WriteLine(p3d_3.ToString());
+			Console.WriteLine(p3d_3.sumAllPoints());
+
+			//Polimorphisem
+
+
+
 			#endregion
 
 
