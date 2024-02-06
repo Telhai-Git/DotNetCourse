@@ -84,7 +84,7 @@ namespace Telahi.DotNet
 			
 			//Point is actually Point3D 
 			//When Virtaul Override is enabled 
-			//base class(Point) types can trigger functions of derived class(Point3D)
+			//base class(Point) types can invoke functions of derived class(Point3D)
 			Point p_3d = new Point3D(1,3,5);
 			int res = p_3d.sumAllPoints();
 
@@ -111,6 +111,7 @@ namespace Telahi.DotNet
 			int sum = 0;
 			foreach ( Point point in points )
 			{
+				//sumAllPoints of Point3d
 				Console.WriteLine(point.sumAllPoints());
 				
 				//Sum all 3 Points
