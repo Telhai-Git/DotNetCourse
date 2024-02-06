@@ -48,7 +48,6 @@ namespace Telahi.DotNet.OOP.Models
 	 AdmiFolderAccess  = 2,
     
 
-
 }
 
 

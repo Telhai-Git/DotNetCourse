@@ -9,8 +9,42 @@ namespace Telahi.DotNet.OOP.Models
 	public class UsersManager : IUserManager
 	{
 		private List<User> users;
+		private static UsersManager usermanger;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="managerType"></param>
+		/// <returns></returns>
+		/// <example> UsersManager mngUsers = UsersManager.Instance("MemoryBase") </example>
+		public static UsersManager GetInstance(string managerType)
+		{
+			if (usermanger != null)
+				usermanger = new UsersManager(managerType);
+		
+			return usermanger;	
+
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public static UsersManager Instance
+		{
+			get
+			{
+				if (usermanger != null)
+					usermanger = new UsersManager();
+
+				return usermanger;
+			}
+
+		} 
 		public UsersManager()
+		{
+			users = new List<User>();
+		}
+
+		public UsersManager(string managerType)
 		{
 			users = new List<User>();
 		}
