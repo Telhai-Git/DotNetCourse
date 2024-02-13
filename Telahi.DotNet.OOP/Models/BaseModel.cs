@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 
 namespace Telahi.DotNet.OOP.Models
 {
-	public  class BaseModel
+	public abstract  class BaseModel
 	{
         private static int _id = 0;
+
+
+		public abstract void Test();
+	
 
         public BaseModel()
         {

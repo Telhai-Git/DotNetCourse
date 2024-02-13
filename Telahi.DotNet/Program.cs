@@ -126,7 +126,7 @@ namespace Telahi.DotNet
 
 
 			#region
-			AdminUser admin1 = new AdminUser("user1");
+			AdminUser admin1 = new AdminUser("user1") ;
 			User admin2 = new User("user2");
 			AdminUser admin3 = new AdminUser("user3");
 			admin3.AccessType = RoleAccessEmum.AdmiFolderAccess;
@@ -146,8 +146,13 @@ namespace Telahi.DotNet
 			}
 
 
-			UsersManager mng = new UsersManager();
+			IUserManager mng =  UsersManager.GetInstance();
 			HandleUsers(mng);
+			if (mng is ICSVWriter writer)
+			{
+				writer.Write("users.csv");
+			}
+
 			#endregion
 
 
@@ -168,7 +173,9 @@ namespace Telahi.DotNet
 
         public static void HandleUsers(IUserManager manger)
 		{
-			manger.AddUser(new AdminUser("dfgdfg"));
+			manger.AddUser(new AdminUser("stefca"));
+			manger.AddUser(new AdminUser("labronj"));
+			manger.AddUser(new AdminUser("avdiaa"));
 
 		}
 

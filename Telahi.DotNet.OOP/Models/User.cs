@@ -33,10 +33,13 @@ namespace Telahi.DotNet.OOP.Models
 		/// </summary>
 		/// <returns></returns>
 		public override string ToString() => $"{Id}:{UserName}";
-		
-		
 
 
+
+		public override void Test()
+		{
+			
+		}
 
 
 	}

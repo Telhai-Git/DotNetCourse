@@ -16,19 +16,20 @@ namespace Telahi.DotNet.OOP.Models
 		private static UsersManager usermanger;
 
 		/// <summary>
-		/// 
+		/// Singelton 
 		/// </summary>
 		/// <param name="managerType"></param>
 		/// <returns></returns>
 		/// <example> IUserManager mngUsers = UsersManager.Instance("MemoryBase") </example>
-		public static UsersManager GetInstance(string managerType)
+		public static IUserManager GetInstance()
 		{
-			if (usermanger != null)
-				usermanger = new UsersManager(managerType);
+			if (usermanger == null)
+				usermanger = new UsersManager();
 		
 			return usermanger;	
 
 		}
+	
 		/// <summary>
 		/// 
 		/// </summary>
@@ -47,19 +48,12 @@ namespace Telahi.DotNet.OOP.Models
 		/// <summary>
 		/// 
 		/// </summary>
-		public UsersManager()
+		private UsersManager()
 		{
 			users = new List<User>();
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="managerType"></param>
-		public UsersManager(string managerType)
-		{
-			users = new List<User>();
-		}
+		
 		
 		/// <summary>
 		/// 
@@ -101,5 +95,31 @@ namespace Telahi.DotNet.OOP.Models
 				}
 			}
 		}
+
+		public User[] GetAllUsers()
+		{
+			return this.users.ToArray();
+		}
+
+		public User GetUserById(string user)
+		{
+			return this.users.Find(u => u.Id == user);
+		}
+
+		//public void Write(string path)
+		//{
+		//	File.WriteAllText(path, ToCsvString());
+		//}
+
+		//public string ToCsvString()
+		//{
+		//	StringBuilder builder = new StringBuilder();
+		//	for (int i = 0; i < this.users.Count; i++)
+		//	{
+		//		User user = users[i];
+		//		builder.AppendLine($"{user.Id},{user.UserName},{user.PassWord},{user.AccessType.ToString()}");
+		//	}
+		//	return builder.ToString();
+		//}
 	}
 }

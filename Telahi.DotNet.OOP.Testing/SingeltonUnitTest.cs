@@ -1,3 +1,5 @@
+using Telahi.DotNet.OOP.Models;
+
 namespace Telahi.DotNet.OOP.Testing
 {
 	[TestClass]
@@ -44,5 +46,22 @@ namespace Telahi.DotNet.OOP.Testing
 			Assert.IsFalse(p1 == p2);
 
 		}
+
+		[TestMethod]
+		public void Test4()
+		{
+			Singelton s1 = Singelton.Instance;
+			Assert.IsNotNull(s1);
+		}
+
+		[TestMethod]
+		public void Test5()
+		{
+			IUserManager mngUser = UsersManager.GetInstance();
+			mngUser.AddUser(new User);
+		}
+
 	}
+
+
 }

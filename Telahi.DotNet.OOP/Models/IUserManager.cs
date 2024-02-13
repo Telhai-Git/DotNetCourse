@@ -12,6 +12,8 @@ namespace Telahi.DotNet.OOP.Models
 		void AddUser(User user);
 		void RemoveUser(string id);
 		void UpdateUser(string id,User userToUpdate);
-		
+		User[] GetAllUsers();
+		User GetUserById(string user);
+
 	}
 }

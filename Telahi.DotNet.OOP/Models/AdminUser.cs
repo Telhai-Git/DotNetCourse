@@ -25,5 +25,10 @@ namespace Telahi.DotNet.OOP.Models
 			return "Admin_";
 		}
 
+		public override void Test()
+		{
+			//base.Test();
+		}
+
 	}
 }
