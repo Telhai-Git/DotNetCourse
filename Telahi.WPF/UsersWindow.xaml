@@ -31,7 +31,7 @@
 
 
 
-        <ListBox Name="lstUsers"  Margin="10" Grid.Column="0" Grid.Row="1" Background="LightBlue"  VerticalAlignment="Stretch" />
+        <ListBox SelectionChanged="lstUsers_SelectionChanged" Name="lstUsers"  Margin="10" Grid.Column="0" Grid.Row="1" Background="LightBlue"  VerticalAlignment="Stretch" />
 
 
     </Grid>

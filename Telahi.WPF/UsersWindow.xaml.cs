@@ -56,6 +56,12 @@ namespace Telahi.WPF
 
 		}
 
-	
+		private void lstUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+            int index = this.lstUsers.SelectedIndex;
+            User user = Users[index];
+            MessageBox.Show(user.ToString());
+
+		}
 	}
 }
