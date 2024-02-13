@@ -46,10 +46,27 @@ namespace Telahi.WPF
 
 
             //TaKe Users as Source Of The Control 
-            this.lstUsers.ItemsSource = Users;
+            InitList();
 
 
 		}
+
+        private void InitList()
+        {
+			//this.lstUsers.Items.Clear();
+			//// this.lstUsers.ItemsSource = null;
+			//this.lstUsers.ItemsSource = Users;
+
+			this.lstUsers.Items.Clear();
+			foreach (User itemUser in Users)
+            {
+                this.lstUsers.Items.Add( $"{itemUser.Name} : {itemUser.Email}");
+			}
+
+
+		}
+
+
 
 		private void btnLoad_Click(object sender, RoutedEventArgs e)
 		{
