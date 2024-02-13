@@ -9,6 +9,7 @@
     <Canvas Name="cnavasRoot">
         <Button Name="btnRed" Click="Button_Click" FontSize="30" Content="Click Me Red" Canvas.Left="305" Canvas.Top="119" Background="#FFFF5151" FontFamily="Arial Black"/>
         <Button Name="btnYellow" Click="Button_Click" FontSize="30" Content="Click Me Yellow" Canvas.Left="305" Canvas.Top="187" Background="NavajoWhite" FontFamily="Arial Black" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button Name="btn_Users" Click="btn_Users_Click"  FontSize="30" Content="Open Users Window" Canvas.Left="305" Canvas.Top="254" Background="LightGreen" FontFamily="Arial Black" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
     </Canvas>
 

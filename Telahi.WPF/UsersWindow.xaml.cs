@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace Telahi.WPF
+{
+    /// <summary>
+    /// Interaction logic for UsersWindow.xaml
+    /// </summary>
+    public partial class UsersWindow : Window
+    {
+
+        public UsersWindow(string title):this()
+        {
+            Title = title;
+        }
+
+        public UsersWindow()
+        {
+            InitializeComponent();
+        }
+    }
+}
