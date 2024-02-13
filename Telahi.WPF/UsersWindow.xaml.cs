@@ -60,7 +60,9 @@ namespace Telahi.WPF
 		{
             int index = this.lstUsers.SelectedIndex;
             User user = Users[index];
-            MessageBox.Show(user.ToString());
+
+            TxtBoxId.Text = user.Id;
+			TxtBoxUseName.Text = user.Name;
 
 		}
 	}
