@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Telahi.WPF"
         mc:Ignorable="d"
-        Title="UsersWindow" Height="450" Width="800">
+        Title="UsersWindow" Height="450" Width="800"
+        Loaded="Window_Loaded"
+        >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -20,7 +22,7 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Background="LightGray" >
 
-            <Button Content="Button" FontSize="15" HorizontalAlignment="Stretch" Margin="2" Grid.Column="0"  VerticalAlignment="Top"/>
+            <Button Name="btnLoad" Click="btnLoad_Click"  Content="LoadUsers" FontSize="15" HorizontalAlignment="Stretch" Margin="2" Grid.Column="0"  VerticalAlignment="Top"/>
             <Button Content="Button" FontSize="15"  HorizontalAlignment="Stretch" Margin="2" Grid.Column="0"  VerticalAlignment="Top"/>
             <Button Content="Button" FontSize="15" HorizontalAlignment="Stretch" Margin="2" Grid.Column="0"  VerticalAlignment="Top"/>
       
@@ -29,7 +31,7 @@
 
 
 
-        <ListBox  Margin="10" Grid.Column="0" Grid.Row="1" Background="LightBlue"  VerticalAlignment="Stretch" />
+        <ListBox Name="lstUsers"  Margin="10" Grid.Column="0" Grid.Row="1" Background="LightBlue"  VerticalAlignment="Stretch" />
 
 
     </Grid>

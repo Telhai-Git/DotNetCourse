@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Telahi.WPF.Models
 {
-    class User
+    public class User
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -15,7 +15,7 @@ namespace Telahi.WPF.Models
 
 		public override string ToString()
 		{
-			return $"{Id}:{Email}";
+			return $"{this.Id.Substring(0,8)}:{Name}:{Email}";
 		}
 
 	}
