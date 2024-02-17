@@ -30,40 +30,63 @@ namespace Telahi.WPF
         public UsersWindow()
         {
             InitializeComponent();
-
-        }
-
-
-		private void Window_Loaded(object sender, RoutedEventArgs e)
-		{
-            Users = new List<User>();
-   //         Users.Add(new User { Id = Guid.NewGuid().ToString(), Name = "Davids", Email = "user1@outlook.com" });
-			//Users.Add(new User { Id = Guid.NewGuid().ToString(), Name = "Davids", Email = "user1@outlook.com" });
-            for (int i = 0; i < 10; i++)
-            {
-				Users.Add(new User { Id = Guid.NewGuid().ToString(), Name = "User_"+i, Email = "User_" +i+"@telhai.ac.il" });
-			}
-
-
-            //TaKe Users as Source Of The Control 
-            InitList();
-
+			Users = new List<User>();
 
 		}
 
-        private void InitList()
-        {
-			//this.lstUsers.Items.Clear();
-			//// this.lstUsers.ItemsSource = null;
-			//this.lstUsers.ItemsSource = Users;
-
-			this.lstUsers.Items.Clear();
-			foreach (User itemUser in Users)
+   
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+            if (Users.Count==0)
             {
-                this.lstUsers.Items.Add( $"{itemUser.Name} : {itemUser.Email}");
+				//Just For Testing
+				GenerateFakeData();
+            }
+
+			//--Init 
+            InitList();
+
+		}
+
+		/// <summary>
+		/// Generate Fake Data
+		/// Just for debug
+		/// </summary>
+		private void GenerateFakeData()
+		{
+			//--Create 10 Users
+			for (int i = 0; i < 10; i++)
+			{
+				Users.Add(new User { Id = Guid.NewGuid().ToString(), Name = "User_" + i, Email = "User_" + i + "@telhai.ac.il" });
 			}
 
+		}
 
+
+		/// <summary>
+		/// Init ListBox from  List<User> Data Source
+		/// </summary>
+		private void InitList()
+        {
+			//--Use Binding Between lstUsers and Users
+
+			this.lstUsers.ItemsSource = null;
+			this.lstUsers.ItemsSource = Users;
+
+			/////Other Options Adding to ListBox
+			//--Clear ListBox
+			//this.lstUsers.Items.Clear();
+			
+			//--Add Items to ListBox menually
+			//foreach (User itemUser in Users)
+            //{
+              //  this.lstUsers.Items.Add( $"{itemUser.Name} : {itemUser.Email}");
+			//}
 		}
 
 
@@ -73,13 +96,45 @@ namespace Telahi.WPF
 
 		}
 
+		/// <summary>
+		/// Selection Chaged Event of lstUsers
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void lstUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-            int index = this.lstUsers.SelectedIndex;
-            User user = Users[index];
+			if (this.lstUsers.Items.Count > 0)
+			{
 
-            TxtBoxId.Text = user.Id;
-			TxtBoxUseName.Text = user.Name;
+				int index = this.lstUsers.SelectedIndex;
+				User user = Users[index];
+
+				txtId.Text = user.Id;
+				txtName.Text = user.Name;
+				txtEmail.Text = user.Email;
+			}
+		}
+
+
+		private void btnUpdate_Click(object sender, RoutedEventArgs e)
+		{
+			//--Save Selection Index
+			int selectedIndex =  this.lstUsers.SelectedIndex;
+			//--Updated TextBoxes
+			this.Users[selectedIndex].Name = txtName.Text;
+			this.Users[selectedIndex].Email = txtEmail.Text;
+		
+			InitList();
+			this.lstUsers.Focus();
+			this.lstUsers.SelectedIndex = selectedIndex;
+		
+
+			//this.lstUsers.SelectedIndex = selectedIndex;
+			//this.lstUsers.SelectedItem = this.Users[selectedIndex];
+		}
+
+		private void btnDel_Click(object sender, RoutedEventArgs e)
+		{
 
 		}
 	}
