@@ -210,12 +210,14 @@ namespace Telahi.WPF
 		private void btnLoad_Click(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.Filter = "[JSON files] (*.JSON)|*.txt|All files (*.*)|*.*";
+
 			string fileName = "";
 			if (openFileDialog.ShowDialog() == true)
 			{
 				fileName = openFileDialog.FileName;
 				using FileStream openStream = File.OpenRead(fileName);
-
+				
 				object listObj = JsonSerializer.Deserialize<List<User>>(openStream);
 				if (listObj is List<User> list)
 				{
