@@ -12,29 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Telahi.WPF.Models;
+using System.Text.Json;
+using System.IO;
 
 namespace Telahi.WPF
 {
-    /// <summary>
-    /// Interaction logic for UsersWindow.xaml
-    /// </summary>
-    public partial class UsersWindow : Window
-    {
-       public List<User> Users {get;set;}
+	/// <summary>
+	/// Interaction logic for UsersWindow.xaml
+	/// </summary>
+	public partial class UsersWindow : Window
+	{
+		public List<User> Users { get; set; }
 
-        public UsersWindow(string title):this()
-        {
-            Title = title;
-        }
+		public UsersWindow(string title) : this()
+		{
+			Title = title;
+		}
 
-        public UsersWindow()
-        {
-            InitializeComponent();
+		public UsersWindow()
+		{
+			InitializeComponent();
 			Users = new List<User>();
 
 		}
 
-   
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -42,14 +44,14 @@ namespace Telahi.WPF
 		/// <param name="e"></param>
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-            if (Users.Count==0)
-            {
+			if (Users.Count == 0)
+			{
 				//Just For Testing
 				GenerateFakeData();
-            }
+			}
 
 			//--Init 
-            InitList();
+			InitList();
 
 		}
 
@@ -72,34 +74,34 @@ namespace Telahi.WPF
 		/// Init ListBox from  List<User> Data Source
 		/// </summary>
 		private void InitList()
-        {
+		{
 			//--Use Binding Between lstUsers and Users
 
 			//this.lstUsers.ItemsSource = null;
 			//this.lstUsers.ItemsSource = Users;
-			
+
 			/////Other Options Adding to ListBox
 			//--Clear ListBox
 			this.lstUsers.Items.Clear();
-			
+
 			//--Add Items to ListBox menually
 			foreach (User itemUser in Users)
-            {
-               this.lstUsers.Items.Add( $"{itemUser.Name} : {itemUser.Email}");
+			{
+				this.lstUsers.Items.Add($"{itemUser.Name} : {itemUser.Email}");
 			}
 
-	        if (this.lstUsers.Items.Count> 0)
+			if (this.lstUsers.Items.Count > 0)
 			{
 				btnDel.IsEnabled = true;
 				btnUpdate.IsEnabled = true;
 				this.lstUsers.SelectedIndex = 0;
 			}
-			else  
+			else
 			{
 				btnDel.IsEnabled = false;
 				btnUpdate.IsEnabled = false;
 			}
-			
+
 
 		}
 
@@ -107,6 +109,7 @@ namespace Telahi.WPF
 
 		private void btnLoad_Click(object sender, RoutedEventArgs e)
 		{
+            //Load All Data From File
 
 		}
 
@@ -158,7 +161,7 @@ namespace Telahi.WPF
 				InitList();
 				ClearUserTextBoxes();
 			}
-			
+
 		}
 
 		private void ClearUserTextBoxes()
@@ -166,6 +169,48 @@ namespace Telahi.WPF
 			txtName.Text = string.Empty;
 			txtEmail.Text = string.Empty;
 			txtId.Text = string.Empty;
+		}
+
+		bool toogleAdd = false;
+		private void btnAdd_Click(object sender, RoutedEventArgs e)
+		{
+			if (!toogleAdd)
+			{
+				ClearUserTextBoxes();
+				toogleAdd = true;
+				btnAdd.Content = "Save";
+				btnDel.IsEnabled = false;
+				this.btnUpdate.IsEnabled = false;
+				return;
+			}
+			else
+			{
+				User user = new User { Name = txtName.Text, Email = txtEmail.Text };
+				this.Users.Add(user);
+				InitList();
+				this.lstUsers.SelectedIndex = this.Users.Count - 1;
+				btnAdd.Content = "Add";
+				toogleAdd = false;
+				btnDel.IsEnabled = true;
+				this.btnUpdate.IsEnabled = true;
+			}
+
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			JsonSerializerOptions? options = new JsonSerializerOptions { WriteIndented = true };
+			string usersJsonText = JsonSerializer.Serialize<List<User>>(this.Users, options);
+			File.WriteAllText("users.json", usersJsonText);
+
+			//Save List as JSON File
+
+			//Serialization:   OBject/List<> --------> (string./File)users.Json
+			//Desirialization: users.Json(String/File) -------> Memory Object(List)
+
+
+
+
 		}
 	}
 }

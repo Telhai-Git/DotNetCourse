@@ -23,7 +23,7 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Background="LightGray" >
 
             <Button Name="btnLoad" Click="btnLoad_Click"  Content="LoadUsers" FontSize="15" HorizontalAlignment="Stretch" Margin="2" Grid.Column="0"  VerticalAlignment="Top"/>
-            <Button Content="Button" FontSize="15"  HorizontalAlignment="Stretch" Margin="2" Grid.Column="0"  VerticalAlignment="Top"/>
+            <Button Content="SaveDataToFile" FontSize="15"  HorizontalAlignment="Stretch" Margin="2" Grid.Column="0"  VerticalAlignment="Top" Click="Button_Click"/>
             <Button Content="Button" FontSize="15" HorizontalAlignment="Stretch" Margin="2" Grid.Column="0"  VerticalAlignment="Top"/>
 
 
@@ -61,7 +61,7 @@
             <StackPanel  Grid.Row="4" Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Right" VerticalAlignment="Bottom">
                 <Button Name="btnUpdate" Click="btnUpdate_Click"  Width="100" FontSize="18" Margin="6,6,6,25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Update"></Button>
                 <Button Name="btnDel"  Click="btnDel_Click" Width="100" FontSize="18" Margin="6,6,6,25"  VerticalAlignment="Bottom" HorizontalAlignment="Right"  Content="Delete"></Button>
-                <Button Name="btnAdd"  Click="btnDel_Click" Width="100" FontSize="18" Margin="6,6,6,25"  VerticalAlignment="Bottom" HorizontalAlignment="Right"  Content="Add"></Button>
+                <Button Name="btnAdd"   Width="100" FontSize="18" Margin="6,6,6,25"  VerticalAlignment="Bottom" HorizontalAlignment="Right"  Content="Add" Click="btnAdd_Click"></Button>
 
             </StackPanel>
           

@@ -12,8 +12,12 @@ namespace Telahi.WPF.Models
         public string Name { get; set; }
         public string Email { get; set; }
 
+        public User()
+        {
+            Id = Guid.NewGuid().ToString();
+        }
 
-		public override string ToString()
+        public override string ToString()
 		{
 			return $"{this.Id.Substring(0,8)}:{Name}:{Email}";
 		}
