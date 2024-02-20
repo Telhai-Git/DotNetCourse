@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Telahi.WPF.Models;
 using System.Text.Json;
 using System.IO;
+using Microsoft.Win32;
 
 namespace Telahi.WPF
 {
@@ -107,11 +108,6 @@ namespace Telahi.WPF
 
 
 
-		private void btnLoad_Click(object sender, RoutedEventArgs e)
-		{
-            //Load All Data From File
-
-		}
 
 		/// <summary>
 		/// Selection Chaged Event of lstUsers
@@ -199,7 +195,7 @@ namespace Telahi.WPF
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			JsonSerializerOptions? options = new JsonSerializerOptions { WriteIndented = true };
+			JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
 			string usersJsonText = JsonSerializer.Serialize<List<User>>(this.Users, options);
 			File.WriteAllText("users.json", usersJsonText);
 
@@ -207,9 +203,24 @@ namespace Telahi.WPF
 
 			//Serialization:   OBject/List<> --------> (string./File)users.Json
 			//Desirialization: users.Json(String/File) -------> Memory Object(List)
+		}
 
 
 
+		private void btnLoad_Click(object sender, RoutedEventArgs e)
+		{
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			//Open File Dialog
+
+			string fileName = "users.json";
+			using FileStream openStream = File.OpenRead(fileName);
+
+			object listObj = JsonSerializer.Deserialize<List<User>>(openStream);
+			if (listObj is List<User> list)
+			{
+				this.Users = list;
+				InitList();
+			}
 
 		}
 	}
