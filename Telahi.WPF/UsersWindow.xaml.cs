@@ -24,6 +24,7 @@ namespace Telahi.WPF
 	public partial class UsersWindow : Window
 	{
 		public List<User> Users { get; set; }
+		
 
 		public UsersWindow(string title) : this()
 		{
@@ -78,18 +79,18 @@ namespace Telahi.WPF
 		{
 			//--Use Binding Between lstUsers and Users
 
-			//this.lstUsers.ItemsSource = null;
-			//this.lstUsers.ItemsSource = Users;
+			this.lstUsers.ItemsSource = null;
+			this.lstUsers.ItemsSource = Users;
 
 			/////Other Options Adding to ListBox
 			//--Clear ListBox
-			this.lstUsers.Items.Clear();
+			//this.lstUsers.Items.Clear();
 
 			//--Add Items to ListBox menually
-			foreach (User itemUser in Users)
-			{
-				this.lstUsers.Items.Add($"{itemUser.Name} : {itemUser.Email}");
-			}
+			//foreach (User itemUser in Users)
+			//{
+			//	this.lstUsers.Items.Add($"{itemUser.Name} : {itemUser.Email}");
+			//}
 
 			if (this.lstUsers.Items.Count > 0)
 			{
@@ -101,6 +102,7 @@ namespace Telahi.WPF
 			{
 				btnDel.IsEnabled = false;
 				btnUpdate.IsEnabled = false;
+				ClearUserTextBoxes();
 			}
 
 
@@ -150,14 +152,18 @@ namespace Telahi.WPF
 
 		private void btnDel_Click(object sender, RoutedEventArgs e)
 		{
-			if (this.lstUsers.Items.Count > 0)
+
+			if (lstUsers.Items.Count > 0)
 			{
 				int selectedIndex = this.lstUsers.SelectedIndex;
 				this.Users.RemoveAt(selectedIndex);
 				InitList();
-				ClearUserTextBoxes();
+				if (lstUsers.Items.Count==0)
+				{
+					ClearUserTextBoxes();
+				}
 			}
-
+		
 		}
 
 		private void ClearUserTextBoxes()
@@ -167,34 +173,45 @@ namespace Telahi.WPF
 			txtId.Text = string.Empty;
 		}
 
-		bool toogleAdd = false;
+
 		private void btnAdd_Click(object sender, RoutedEventArgs e)
 		{
-			if (!toogleAdd)
-			{
-				ClearUserTextBoxes();
-				toogleAdd = true;
-				btnAdd.Content = "Save";
-				btnDel.IsEnabled = false;
-				this.btnUpdate.IsEnabled = false;
-				return;
-			}
-			else
-			{
-				User user = new User { Name = txtName.Text, Email = txtEmail.Text };
+				User user = new User { Name = "No User", Email = "No Email" };
 				this.Users.Add(user);
 				InitList();
 				this.lstUsers.SelectedIndex = this.Users.Count - 1;
-				btnAdd.Content = "Add";
-				toogleAdd = false;
-				btnDel.IsEnabled = true;
-				this.btnUpdate.IsEnabled = true;
-			}
-
 		}
+
+		//bool toogleAdd = false;
+		//private void btnAdd_Click(object sender, RoutedEventArgs e)
+		//{
+		//	if (!toogleAdd)
+		//	{
+		//		ClearUserTextBoxes();
+		//		toogleAdd = true;
+		//		btnAdd.Content = "Save";
+		//		btnDel.IsEnabled = false;
+		//		this.btnUpdate.IsEnabled = false;
+		//		return;
+		//	}
+		//	else
+		//	{
+		//		User user = new User { Name = txtName.Text, Email = txtEmail.Text };
+		//		this.Users.Add(user);
+		//		InitList();
+		//		this.lstUsers.SelectedIndex = this.Users.Count - 1;
+		//		btnAdd.Content = "Add";
+		//		toogleAdd = false;
+		//		btnDel.IsEnabled = true;
+		//		this.btnUpdate.IsEnabled = true;
+		//	}
+
+		//}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
+			//TODO Dialog For Write
+
 			JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
 			string usersJsonText = JsonSerializer.Serialize<List<User>>(this.Users, options);
 			File.WriteAllText("users.json", usersJsonText);
@@ -224,6 +241,9 @@ namespace Telahi.WPF
 					this.Users = list;
 					InitList();
 				}
+
+
+
 			}
 			//Open File Dialog
 

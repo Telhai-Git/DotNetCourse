@@ -58,7 +58,7 @@ namespace Telahi.DotNet.OOP.Testing
 		public void Test5()
 		{
 			IUserManager mngUser = UsersManager.GetInstance();
-			mngUser.AddUser(new User);
+			mngUser.AddUser(new User());
 		}
 
 	}
