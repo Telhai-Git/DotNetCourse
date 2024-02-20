@@ -92,7 +92,14 @@ namespace Telahi.WPF
 			{
 				btnDel.IsEnabled = true;
 				btnUpdate.IsEnabled = true;
+				this.lstUsers.SelectedIndex = 0;
 			}
+			else  
+			{
+				btnDel.IsEnabled = false;
+				btnUpdate.IsEnabled = false;
+			}
+			
 
 		}
 
@@ -150,19 +157,8 @@ namespace Telahi.WPF
 				this.Users.RemoveAt(selectedIndex);
 				InitList();
 				ClearUserTextBoxes();
-
-				
-
 			}
-			if (this.lstUsers.Items.Count == 0)
-			{
-                 btnDel.IsEnabled = false;
-			     btnUpdate.IsEnabled = false;
-			}
-			else
-			{
-				this.lstUsers.SelectedIndex = 0;
-			}
+			
 		}
 
 		private void ClearUserTextBoxes()
