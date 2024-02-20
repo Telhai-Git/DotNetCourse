@@ -124,7 +124,6 @@ namespace Telahi.DotNet
 
 			#endregion
 
-
 			#region
 			AdminUser admin1 = new AdminUser("user1") ;
 			User admin2 = new User("user2");

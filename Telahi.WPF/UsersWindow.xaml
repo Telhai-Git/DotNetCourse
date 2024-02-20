@@ -61,6 +61,8 @@
             <StackPanel  Grid.Row="4" Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Right" VerticalAlignment="Bottom">
                 <Button Name="btnUpdate" Click="btnUpdate_Click"  Width="100" FontSize="18" Margin="6,6,6,25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Update"></Button>
                 <Button Name="btnDel"  Click="btnDel_Click" Width="100" FontSize="18" Margin="6,6,6,25"  VerticalAlignment="Bottom" HorizontalAlignment="Right"  Content="Delete"></Button>
+                <Button Name="btnAdd"  Click="btnDel_Click" Width="100" FontSize="18" Margin="6,6,6,25"  VerticalAlignment="Bottom" HorizontalAlignment="Right"  Content="Add"></Button>
+
             </StackPanel>
           
         </Grid>

@@ -75,18 +75,25 @@ namespace Telahi.WPF
         {
 			//--Use Binding Between lstUsers and Users
 
-			this.lstUsers.ItemsSource = null;
-			this.lstUsers.ItemsSource = Users;
-
+			//this.lstUsers.ItemsSource = null;
+			//this.lstUsers.ItemsSource = Users;
+			
 			/////Other Options Adding to ListBox
 			//--Clear ListBox
-			//this.lstUsers.Items.Clear();
+			this.lstUsers.Items.Clear();
 			
 			//--Add Items to ListBox menually
-			//foreach (User itemUser in Users)
-            //{
-              //  this.lstUsers.Items.Add( $"{itemUser.Name} : {itemUser.Email}");
-			//}
+			foreach (User itemUser in Users)
+            {
+               this.lstUsers.Items.Add( $"{itemUser.Name} : {itemUser.Email}");
+			}
+
+	        if (this.lstUsers.Items.Count> 0)
+			{
+				btnDel.IsEnabled = true;
+				btnUpdate.IsEnabled = true;
+			}
+
 		}
 
 
@@ -118,24 +125,51 @@ namespace Telahi.WPF
 
 		private void btnUpdate_Click(object sender, RoutedEventArgs e)
 		{
-			//--Save Selection Index
-			int selectedIndex =  this.lstUsers.SelectedIndex;
-			//--Updated TextBoxes
-			this.Users[selectedIndex].Name = txtName.Text;
-			this.Users[selectedIndex].Email = txtEmail.Text;
-		
-			InitList();
-			this.lstUsers.Focus();
-			this.lstUsers.SelectedIndex = selectedIndex;
-		
+			if (this.lstUsers.Items.Count > 0)
+			{
+				//--Save Selection Index
+				int selectedIndex = this.lstUsers.SelectedIndex;
+				//--Updated TextBoxes
+				this.Users[selectedIndex].Name = txtName.Text;
+				this.Users[selectedIndex].Email = txtEmail.Text;
 
+				InitList();
+				this.lstUsers.Focus();
+				this.lstUsers.SelectedIndex = selectedIndex;
+
+			}
 			//this.lstUsers.SelectedIndex = selectedIndex;
 			//this.lstUsers.SelectedItem = this.Users[selectedIndex];
 		}
 
 		private void btnDel_Click(object sender, RoutedEventArgs e)
 		{
+			if (this.lstUsers.Items.Count > 0)
+			{
+				int selectedIndex = this.lstUsers.SelectedIndex;
+				this.Users.RemoveAt(selectedIndex);
+				InitList();
+				ClearUserTextBoxes();
 
+				
+
+			}
+			if (this.lstUsers.Items.Count == 0)
+			{
+                 btnDel.IsEnabled = false;
+			     btnUpdate.IsEnabled = false;
+			}
+			else
+			{
+				this.lstUsers.SelectedIndex = 0;
+			}
+		}
+
+		private void ClearUserTextBoxes()
+		{
+			txtName.Text = string.Empty;
+			txtEmail.Text = string.Empty;
+			txtId.Text = string.Empty;
 		}
 	}
 }
