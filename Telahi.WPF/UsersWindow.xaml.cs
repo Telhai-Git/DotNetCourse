@@ -261,5 +261,72 @@ namespace Telahi.WPF
 			
 
 		}
+
+
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void imgUser_MouseUp(object sender, MouseButtonEventArgs e)
+		{
+			OpenFileDialog dlg = new OpenFileDialog();
+			//dlg.InitialDirectory = "D://";
+			dlg.Filter = "Image files (*.jpg)|*.jpg|All Files (*.*)|*.*";
+			dlg.RestoreDirectory = true;
+
+			if (dlg.ShowDialog() == true)
+			{
+
+				//--User Image Parts
+			    var userImageSourcePath = dlg.FileName;
+				string userFileName = System.IO.Path.GetFileNameWithoutExtension(userImageSourcePath);
+				string userFileExt = System.IO.Path.GetExtension(userImageSourcePath);
+				string newFileName = $"{userFileName}_{txtId.Text}{userFileExt}";
+
+				var assemblyFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+				string appDirPath = System.IO.Path.GetDirectoryName(assemblyFilePath);
+
+		
+				//IMages Path For All Images
+				string imagesDir = System.IO.Path.Combine(appDirPath,"images");
+				string destDirPath = System.IO.Path.Combine(imagesDir, newFileName);
+
+				if (!Directory.Exists(imagesDir)) 
+				{
+					Directory.CreateDirectory(imagesDir);
+				}
+
+				File.Copy(userImageSourcePath, destDirPath);
+
+				//*User Update Property
+				UpdateUserImage(txtId.Text, destDirPath);
+
+			}
+
+
+
+
+		}
+
+		private void UpdateUserImage(string userId ,string destDirPath)
+		{
+			 //Update Model
+			 User found = Users.SingleOrDefault(u => u.Id == userId);
+			 found.ImgPath = destDirPath;//*Dont Save All 
+
+			//UpdateDisplay Image in Window
+			BitmapImage bitmap = new BitmapImage();
+			bitmap.BeginInit();
+		
+			bitmap.UriSource = new Uri(destDirPath);
+			//bitmap.DecodePixelWidth = 100; // Resize width to 200 pixels
+			bitmap.EndInit();
+			imgUser.Source = bitmap;
+
+
+
+		}
 	}
 }
