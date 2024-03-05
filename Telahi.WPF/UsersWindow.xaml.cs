@@ -15,13 +15,15 @@ using Telahi.WPF.Models;
 using System.Text.Json;
 using System.IO;
 using Microsoft.Win32;
+using System.Reflection;
+using System.Security.Policy;
 
 
 //Task Add Image TODO:
 // 1) Add XAML PLaceHolder <IMAGE>
 // 2) Add Propery To User Path
 // 3) When Adding new User to Window Put default image path
- //Format: {Imge Origanal Name}_{Id}.png
+//Format: {Imge Origanal Name}_{Id}.png
 // 4) User Selected in List Box Show Its Image
 // 5) Edit ....
       
@@ -139,14 +141,24 @@ namespace Telahi.WPF
 				txtName.Text = user.Name;
 				txtEmail.Text = user.Email;
 
+				//string currentAssemblyPath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+				//string currentAssemblyParentPath = System.IO.Path.GetDirectoryName(currentAssemblyPath);
+
+
 				//Update Image
 				BitmapImage bitmap = new BitmapImage();
 				bitmap.BeginInit();
-				bitmap.UriSource = new Uri(user.imgPath);
-				bitmap.DecodePixelWidth = 100; // Resize width to 200 pixels
-				bitmap.EndInit();
+				var assemblyFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+				string appDirPath = System.IO.Path.GetDirectoryName(assemblyFilePath);
+			    
+				var imageFullpath = System.IO.Path.Combine(appDirPath, user.ImgPath);
 
+				bitmap.UriSource = new Uri(imageFullpath);
+				//bitmap.DecodePixelWidth = 100; // Resize width to 200 pixels
+				bitmap.EndInit();
 				imgUser.Source = bitmap;
+
+
 
 			}
 		}
