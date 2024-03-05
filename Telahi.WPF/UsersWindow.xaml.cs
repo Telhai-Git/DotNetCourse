@@ -21,6 +21,7 @@ using Microsoft.Win32;
 // 1) Add XAML PLaceHolder <IMAGE>
 // 2) Add Propery To User Path
 // 3) When Adding new User to Window Put default image path
+ //Format: {Imge Origanal Name}_{Id}.png
 // 4) User Selected in List Box Show Its Image
 // 5) Edit ....
       
@@ -137,6 +138,16 @@ namespace Telahi.WPF
 				txtId.Text = user.Id;
 				txtName.Text = user.Name;
 				txtEmail.Text = user.Email;
+
+				//Update Image
+				BitmapImage bitmap = new BitmapImage();
+				bitmap.BeginInit();
+				bitmap.UriSource = new Uri(user.imgPath);
+				bitmap.DecodePixelWidth = 100; // Resize width to 200 pixels
+				bitmap.EndInit();
+
+				imgUser.Source = bitmap;
+
 			}
 		}
 

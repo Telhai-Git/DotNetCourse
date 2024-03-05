@@ -64,7 +64,8 @@
                 <Button Name="btnAdd"   Width="100" FontSize="18" Margin="6,6,6,25"  VerticalAlignment="Bottom" HorizontalAlignment="Right"  Content="Add" Click="btnAdd_Click"></Button>
 
             </StackPanel>
-            <Image Name="imgUser" Width="100" Height="100"  Grid.Row="0" Grid.Column="1"  />
+            <Image Name="imgUser" Width="100" Height="100"  Grid.Row="0" Grid.Column="1"  >
+            </Image>
             
           
         </Grid>
