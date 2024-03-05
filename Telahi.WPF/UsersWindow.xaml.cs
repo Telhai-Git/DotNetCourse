@@ -19,7 +19,11 @@ using Microsoft.Win32;
 
 //Task Add Image TODO:
 // 1) Add XAML PLaceHolder <IMAGE>
-// 2) ....
+// 2) Add Propery To User Path
+// 3) When Adding new User to Window Put default image path
+// 4) User Selected in List Box Show Its Image
+// 5) Edit ....
+      
 
 
 namespace Telahi.WPF

@@ -8,14 +8,19 @@ namespace Telahi.WPF.Models
 {
     public class User
     {
+        static string defaultImagePath = @"images/noimage.jpg";
+
         public string Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+		public string imgPath { get; set; }
 
-        public User()
+		public User()
         {
             Id = Guid.NewGuid().ToString();
-        }
+            imgPath = defaultImagePath;
+
+		}
 
         public override string ToString()
 		{
