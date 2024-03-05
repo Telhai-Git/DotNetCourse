@@ -16,6 +16,12 @@ using System.Text.Json;
 using System.IO;
 using Microsoft.Win32;
 
+
+//Task Add Image TODO:
+// 1) Add XAML PLaceHolder <IMAGE>
+// 2) ....
+
+
 namespace Telahi.WPF
 {
 	/// <summary>
@@ -182,31 +188,9 @@ namespace Telahi.WPF
 				this.lstUsers.SelectedIndex = this.Users.Count - 1;
 		}
 
-		//bool toogleAdd = false;
-		//private void btnAdd_Click(object sender, RoutedEventArgs e)
-		//{
-		//	if (!toogleAdd)
-		//	{
-		//		ClearUserTextBoxes();
-		//		toogleAdd = true;
-		//		btnAdd.Content = "Save";
-		//		btnDel.IsEnabled = false;
-		//		this.btnUpdate.IsEnabled = false;
-		//		return;
-		//	}
-		//	else
-		//	{
-		//		User user = new User { Name = txtName.Text, Email = txtEmail.Text };
-		//		this.Users.Add(user);
-		//		InitList();
-		//		this.lstUsers.SelectedIndex = this.Users.Count - 1;
-		//		btnAdd.Content = "Add";
-		//		toogleAdd = false;
-		//		btnDel.IsEnabled = true;
-		//		this.btnUpdate.IsEnabled = true;
-		//	}
 
-		//}
+
+
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
@@ -228,7 +212,7 @@ namespace Telahi.WPF
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 			openFileDialog.Filter = "[JSON files] (*.JSON)|*.txt|All files (*.*)|*.*";
-
+			
 			string fileName = "";
 			if (openFileDialog.ShowDialog() == true)
 			{
